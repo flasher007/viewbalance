@@ -1,0 +1,30 @@
+{
+  "name": "viewbalance",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=development nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flasher007/viewbalance.git"
+  },
+  "author": "Aleksandr Volkov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flasher007/viewbalance/issues"
+  },
+  "homepage": "https://github.com/flasher007/viewbalance#readme",
+  "dependencies": {
+    "config": "^2.0.1",
+    "decimal.js": "^10.0.1",
+    "express": "^4.16.4",
+    "hbs": "^4.0.1",
+    "lodash": "^4.17.11",
+    "nodemon": "^1.18.5",
+    "request": "^2.88.0",
+    "web3": "^1.0.0-beta.36"
+  }
+}

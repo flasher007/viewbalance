@@ -1,0 +1,9 @@
+{
+  "web3provider": {
+    "url": ""
+  },
+  "etherscan": {
+    "url": "http://api.etherscan.io/api",
+    "key": ""
+  }
+}
