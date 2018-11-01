@@ -29,11 +29,11 @@ function createEtherscanClient(url, key) {
                     })
             })
         },
-        txlist: function (address, page = 1, offset = 10, startblock = 0, endblock = 99999999) {
+        txlist: function (address, page = 1, offset = 10, startblock = 0, endblock = 99999999, sort = "desc") {
             return this.invoke({
                 module: "account",
                 action: "txlist",
-                address, page, offset, startblock, endblock,
+                address, page, offset, startblock, endblock, sort,
                 apikey: key
             })
         }

@@ -18,13 +18,12 @@ module.exports = {
             address = req.query.ethaddress;
             const etherscan = createEtherscanClient(config.get('etherscan.url'), config.get('etherscan.key'));
 
-            if (!Web3.utils.isAddress(address)) {
+            if (!client.utils.isAddress(address)) {
                 error = "Please enter valid address";
+            } else {
+                balance = await client.eth.getBalance(address);
+                transactions = await etherscan.txlist(address);
             }
-
-            balance = await client.eth.getBalance(address);
-            transactions = await etherscan.txlist(address);
-            console.log(transactions);
         }
 
         res.render('index.hbs', {address, error, balance, transactions});

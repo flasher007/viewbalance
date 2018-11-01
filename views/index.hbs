@@ -23,7 +23,12 @@
                                 <label for="ethaddress">ETH Address:</label>
                             </div>
                             <div class="col-6">
-                                <input type="text" value="" name="ethaddress" class="form-control" id="ethaddress" placeholder="0x...">
+                                <input required type="text" value="" name="ethaddress" class="form-control" id="ethaddress" placeholder="0x...">
+                                {{#if error}}
+                                    <div class="alert alert-danger">
+                                        {{error}}
+                                    </div>
+                                {{/if}}
                             </div>
                             <div class="col">
                                 <button type="submit" class="btn btn-primary">Show balance</button>
@@ -56,13 +61,13 @@
                                 <th>value</th>
                             </tr>
                         </thead>
-                        {{#each events}}
+                        {{#each transactions}}
                             <tr>
-                                <td title="{{this.hash}}">{{truncate this.hash}}</td>
-                                <td>{{this.blockNumber}}</td>
-                                <td>{{truncate this.from}}</td>
-                                <td>{{truncate this.to}}</td>
-                                <td>{{toNumber this.value}}</td>
+                                <td><a target="_blank" href="https://etherscan.io/tx/{{this.hash}}">{{truncate this.hash}}</a></td>
+                                <td><a target="_blank" href="https://etherscan.io/block/{{this.blockNumber}}">{{this.blockNumber}}</a></td>
+                                <td><a target="_blank" href="https://etherscan.io/address/{{this.from}}">{{truncate this.from}}</a></td>
+                                <td><a target="_blank" href="https://etherscan.io/address/{{this.to}}">{{truncate this.to}}</a></td>
+                                <td>{{toNumber this.value}} Ether</td>
                             </tr>
                         {{/each}}
                     </table>
