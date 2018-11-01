@@ -4,9 +4,7 @@ function createEtherscanClient(url, key) {
 
     return Object.assign({}, {
         invoke: function (params) {
-
             return new Promise((resolve, reject) => {
-                console.log(url, params);
                 request
                     .get({
                         url,
@@ -18,7 +16,6 @@ function createEtherscanClient(url, key) {
                         if (err) reject(err);
                         else {
                             const parsed_res = JSON.parse(body);
-                            console.log(parsed_res);
                             if (parsed_res.result)
                                 resolve(parsed_res.result);
                             else if (parsed_res.error)
